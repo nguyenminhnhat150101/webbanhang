@@ -1,0 +1,50 @@
+﻿@model ASM.Models.SanPham
+@using ASM.Models
+@using System.Linq
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SanPham</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Sản Phẩm
+            @*@Html.DisplayNameFor(model => model.TenSp)*@
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TenSp)
+        </dd>
+        <dt>
+            Giá: 
+            @*@Html.DisplayNameFor(model => model.Dongia)*@
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dongia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HinhSp)
+        </dt>
+        <dd>
+            <img style="width:50%; height:50%;" src="~/images/@Model.HinhSp" />
+            @*@Html.("../../" + @Model.HinhSp, "100")*@
+        </dd>
+        <dt>
+            Thương Hiệu: 
+            @*@Html.DisplayNameFor(model => model.MaLoaiSpNavigation)*@
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaLoaiSpNavigation.TenLoaiSp)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-success btn-sm" href="@Url.Action("AddToCart", "GioHang")"><span class="glyphicon glyphicon-shopping-cart"></span>Thêm Vào Giỏ</a> |
+
+    @*<a asp-action="Index">Back to List</a>*@
+    <a class="btn btn-success btn-sm" href="@Url.Action("Index", "Home")">Quay Lại</a>
+</div>

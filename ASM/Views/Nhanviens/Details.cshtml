@@ -1,0 +1,36 @@
+﻿@model ASM.Models.Nhanvien
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Nhanvien</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HoTenNv)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HoTenNv)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Diachi)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Diachi)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dienthoai)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dienthoai)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.MaNv">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

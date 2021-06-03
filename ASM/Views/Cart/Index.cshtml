@@ -1,0 +1,42 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/_ViewImports.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h3>Cart Page</h3>
+    <table cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th>Tên Sản Phẩm</th>
+            <th>Hình</th>
+            <th>Giá</th>
+        </tr>
+        @foreach (var item in ViewBag.cart)
+        {
+            <tr>
+                <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item.SanPham.MaSP">Remove</a></td>
+                <td>@item.SanPham.TenSP</td>
+                <td>@item.SanPham.Dongia</td>
+                <td>@item.Quantity</td>
+                <td>@(item.SanPham.Dongia * item.Quantity)</td>
+            </tr>
+        }
+        <tr>
+            <td align="right" colspan="6">Sum</td>
+            <td>
+                @ViewBag.total
+            </td>
+        </tr>
+    </table>
+    <br>
+    <a asp-controller="product" asp-action="index">Continue Shopping</a>
+    <button style="color:red">Hoàn Tất</button>
+</body>
+</html>
+<h2></h2>
+
